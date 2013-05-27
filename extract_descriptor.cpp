@@ -35,7 +35,7 @@ static void help(char *argv[])
     cout << "\nUsage: " << argv[0] << " path/to/image\n" << endl;
 }
 
-bool load_image(char *filename, Mat& dist)
+bool load_image(char *filename, Mat &dist)
 {
     Mat src = imread(filename);
 
@@ -78,6 +78,7 @@ int main(int argc, char *argv[])
         true          // varyImgBoundWithScale
     );
 
+    // Dense sampling
     detector.detect(img, keypoints);
 
     //descriptor (64d vectors)
@@ -87,7 +88,7 @@ int main(int argc, char *argv[])
     FREAK extractor;
     extractor.compute(img, keypoints, descriptors);
 
-
+    cout << format(descriptors, "csv") << endl;
 
     return 0;
 }
