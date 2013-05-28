@@ -16,7 +16,7 @@ using namespace std;
 using namespace cv;
 
 // Maximum image height/width
-const int image_size = 200;
+const int image_size = 100;
 
 // Dense sampling parameters.
 //
@@ -25,9 +25,9 @@ const int image_size = 200;
 //  Eric Nowak, Frederic Jurie, and Bill Triggs, Sampling Strategies for Bag-of-Features Image Classification, ECCV 20.
 //
 const float initFeatureScale = 8.0f;
-const int   featureScaleLevels = 3;
+const int   featureScaleLevels = 1;
 const float featureScaleMul = 1.4142f;
-const int   initXyStep = 3;
+const int   initXyStep = 5;
 const int   initImgBound = initFeatureScale;
 
 static void help(char *argv[])
@@ -88,7 +88,15 @@ int main(int argc, char *argv[])
     FREAK extractor;
     extractor.compute(img, keypoints, descriptors);
 
-    cout << format(descriptors, "csv") << endl;
+    //cout << format(descriptors, "csv") << endl;
+    
+    int num_rows = descriptors.rows;
+    int num_columns = descriptors.cols;
+    for(int row = 0; row < num_rows; row++) {
+        for(int col = 0; col < num_columns; col++) {
+            cout << (char)descriptors.data[row * num_columns + col];
+        }
+    }
 
     return 0;
 }
