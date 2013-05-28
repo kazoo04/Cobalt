@@ -25,9 +25,9 @@ const int image_size = 100;
 //  Eric Nowak, Frederic Jurie, and Bill Triggs, Sampling Strategies for Bag-of-Features Image Classification, ECCV 20.
 //
 const float initFeatureScale = 8.0f;
-const int   featureScaleLevels = 1;
+const int   featureScaleLevels = 3;
 const float featureScaleMul = 1.4142f;
-const int   initXyStep = 5;
+const int   initXyStep = 3;
 const int   initImgBound = initFeatureScale;
 
 static void help(char *argv[])
