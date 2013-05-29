@@ -25,10 +25,10 @@ const int image_size = 200;
 //  Eric Nowak, Frederic Jurie, and Bill Triggs, Sampling Strategies for Bag-of-Features Image Classification, ECCV 20.
 //
 const float initFeatureScale = 16.0f;
-const int   featureScaleLevels = 4;
+const int   featureScaleLevels = 3;
 const float featureScaleMul = 1.4142f;
 const int   initXyStep = 3;
-const int   initImgBound = initFeatureScale;
+const int   initImgBound = 16;
 
 static void help(char *argv[])
 {
@@ -40,7 +40,7 @@ bool load_image(char *filename, Mat &dist)
     Mat src = imread(filename);
 
     if(src.data) {
-        double scale = (double)image_size / (src.rows > src.cols ? src.rows : src.cols);
+        double scale = (double)image_size / (src.rows < src.cols ? src.rows : src.cols);
         dist = Mat(src.rows * scale, src.cols * scale, src.type());
         resize(src, dist, Size(), scale, scale);
 
