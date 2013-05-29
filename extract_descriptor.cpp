@@ -16,7 +16,7 @@ using namespace std;
 using namespace cv;
 
 // Maximum image height/width
-const int image_size = 100;
+const int image_size = 200;
 
 // Dense sampling parameters.
 //
@@ -24,8 +24,8 @@ const int image_size = 100;
 //  Li Fei-Fei, Pietro Perona, A Bayesian Hierarchical Model for Learning Natural Scene Categories, CVPR 2005.
 //  Eric Nowak, Frederic Jurie, and Bill Triggs, Sampling Strategies for Bag-of-Features Image Classification, ECCV 20.
 //
-const float initFeatureScale = 8.0f;
-const int   featureScaleLevels = 3;
+const float initFeatureScale = 16.0f;
+const int   featureScaleLevels = 4;
 const float featureScaleMul = 1.4142f;
 const int   initXyStep = 3;
 const int   initImgBound = initFeatureScale;
